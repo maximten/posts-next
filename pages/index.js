@@ -1,6 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Header from '../components/Header'
 import PostsContainer from '../containers/PostsContainer'
 
 export default class IndexPage extends React.Component {
@@ -11,6 +12,7 @@ export default class IndexPage extends React.Component {
   render () {
     return (
       <div>
+        <Header/>
         <PostsContainer/>
       </div>
     )
