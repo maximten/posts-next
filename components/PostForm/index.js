@@ -9,15 +9,23 @@ export default class PostForm extends Component {
     }
     render () {
         return (
-            <Form model='forms.post'
-                onSubmit={this.handleSubmit}
-            >
-                <Control.text model=".title" />
-                <br/>
-                <Control.textarea model=".content" />
-                <br/>
-                <button type="submit">Add</button>
-            </Form>
+            <div className="card">
+                <div className="card-body">
+                    <h3>Add new post</h3>
+                    <Form model='forms.post'
+                        onSubmit={this.handleSubmit}
+                    >
+                        <div className="form-group">
+                            <Control.text model=".title" className="form-control"/>
+                        </div>
+                        <div className="form-group">
+                            <Control.textarea model=".content" className="form-control"/>
+                        </div>
+                        <br/>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </Form>
+                </div>
+            </div>
         )
     }
 }

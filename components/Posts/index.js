@@ -7,21 +7,26 @@ export default class Posts extends Component {
     render () {
         const { posts: { posts }, addPost, resetForm } = this.props
         return (
-            <div>
+            <div className="container">
                 <h1>Posts</h1>
                 {
+                    posts.length ? 
                     posts.map((post, key) => (
-                        <div key={key}>
-                            <Link key={key} href={{
-                                pathname: '/post',
-                                query: { id: key }
-                            }} as={{
-                                pathname: `/about/${key}`,
-                            }}>
-                                <a>{post.title}</a>
-                            </Link>
+                        <div className="card" key={key}>
+                            <div className="card-body">
+                                <Link key={key} href={{
+                                    pathname: '/post',
+                                    query: { id: key }
+                                }} as={{
+                                    pathname: `/post/${key}`,
+                                }}>
+                                    <a>{post.title}</a>
+                                </Link>
+                            </div>
                         </div>
                     ))
+                    :
+                    <p>No posts yet :(</p>
                 }
                 <PostForm addPost={addPost} resetForm={resetForm}/>
             </div>
